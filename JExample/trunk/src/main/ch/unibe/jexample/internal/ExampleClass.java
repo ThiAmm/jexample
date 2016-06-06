@@ -63,7 +63,7 @@ public class ExampleClass {
         return description;
     }
 
-    public Class<?> getImplementingClass() {
+    public Object getImplementingClass() {
         return jclass;
     }
 
