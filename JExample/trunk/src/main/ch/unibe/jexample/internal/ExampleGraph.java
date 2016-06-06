@@ -103,20 +103,10 @@ public class ExampleGraph {
         if (!anyHasBeenRun) onStartRunning();
         anyHasBeenRun = true;
         
-        for(Method m : testClass.getImplementingClass().getMethods()){
-            if (!m.isAnnotationPresent(BeforeTestRun.class)) continue;
-            Reflection.invoke(m, null);
-        }
-        
         for (Example e: this.getExamples()) {
             if (testClass.contains(e)) {
                 e.run(notifier);
             }
-        }
-        
-        for(Method m : testClass.getImplementingClass().getMethods()){
-            if (!m.isAnnotationPresent(AfterTestRun.class)) continue;
-            Reflection.invoke(m, null);
         }
     }
 
